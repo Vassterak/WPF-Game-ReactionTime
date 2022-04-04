@@ -24,5 +24,45 @@ namespace WPF_Game_ReactionTime
         {
             InitializeComponent();
         }
+
+        private void ButtonStart_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button0_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button1_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button2_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button3_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button4_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button5_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ClearStats_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

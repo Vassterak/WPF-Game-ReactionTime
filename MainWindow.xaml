@@ -41,15 +41,15 @@
         <Label Content="klávesa K" Grid.Column="6" Grid.Row="{Binding Source={StaticResource LabelHeight}}" Margin="10" VerticalAlignment="Center" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center"/>
 
         <!--Buttons for reaction-->
-        <Button x:Name="Button0" Grid.Column="1" Grid.Row="{Binding Source={StaticResource ButtonHeight}}" Margin="10"/>
-        <Button x:Name="Button1" Grid.Column="2" Grid.Row="{Binding Source={StaticResource ButtonHeight}}" Margin="10"/>
-        <Button x:Name="Button2" Grid.Column="3" Grid.Row="{Binding Source={StaticResource ButtonHeight}}" Margin="10"/>
-        <Button x:Name="Button3" Grid.Column="4" Grid.Row="{Binding Source={StaticResource ButtonHeight}}" Margin="10"/>
-        <Button x:Name="Button4" Grid.Column="5" Grid.Row="{Binding Source={StaticResource ButtonHeight}}" Margin="10"/>
-        <Button x:Name="Button5" Grid.Column="6" Grid.Row="{Binding Source={StaticResource ButtonHeight}}" Margin="10"/>
+        <Button x:Name="Button0" Grid.Column="1" Grid.Row="{Binding Source={StaticResource ButtonHeight}}" Margin="10" Click="Button0_Click"/>
+        <Button x:Name="Button1" Grid.Column="2" Grid.Row="{Binding Source={StaticResource ButtonHeight}}" Margin="10" Click="Button1_Click"/>
+        <Button x:Name="Button2" Grid.Column="3" Grid.Row="{Binding Source={StaticResource ButtonHeight}}" Margin="10" Click="Button2_Click"/>
+        <Button x:Name="Button3" Grid.Column="4" Grid.Row="{Binding Source={StaticResource ButtonHeight}}" Margin="10" Click="Button3_Click"/>
+        <Button x:Name="Button4" Grid.Column="5" Grid.Row="{Binding Source={StaticResource ButtonHeight}}" Margin="10" Click="Button4_Click"/>
+        <Button x:Name="Button5" Grid.Column="6" Grid.Row="{Binding Source={StaticResource ButtonHeight}}" Margin="10" Click="Button5_Click"/>
 
         <!--Bottom control panel-->
-        <Button x:Name="ClearStats" Grid.Column="7" Grid.Row="4" Margin="10" Height="35" Content="Vymaž statistiku"/>
+        <Button x:Name="ClearStats" Grid.Column="7" Grid.Row="4" Margin="10" Height="35" Content="Vymaž statistiku" Click="ClearStats_Click"/>
         
         <Label Content="Počet měření za test:" Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Right"/>
         
@@ -60,7 +60,7 @@
             <ComboBoxItem>15</ComboBoxItem>
         </ComboBox>
 
-        <Button x:Name="ButtonStart" Grid.Column="3" Grid.Row="4" Grid.ColumnSpan="2" Margin="20" Height="45" Content="Start"/>
+        <Button x:Name="ButtonStart" Grid.Column="3" Grid.Row="4" Grid.ColumnSpan="2" Margin="20" Height="45" Content="Start" Click="ButtonStart_Click"/>
 
         
         <Label Grid.Column="0" Grid.Row="4" VerticalAlignment="Center" Grid.ColumnSpan="3" Content="Zpožďění mezi reakcemi od [s]:" HorizontalAlignment="Left" />
