@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WPF_Game_ReactionTime"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="MainWindow" MinHeight="500" MinWidth="950">
+        Title="MainWindow" MinHeight="500" MinWidth="950" KeyDown="Window_KeyDown">
     <Window.Resources>
         <sys:Int32 x:Key="LabelHeight">1</sys:Int32>
         <sys:Int32 x:Key="ButtonHeight">2</sys:Int32>

@@ -64,5 +64,34 @@ namespace WPF_Game_ReactionTime
         {
 
         }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            string input = null;
+
+            switch (e.Key)
+            {
+                case Key.D:
+                    break;
+
+                case Key.F:
+                    break;
+
+                case Key.G:
+                    break;
+
+                case Key.H:
+                    break;
+
+                case Key.J:
+                    break;
+
+                case Key.K:
+                    break;
+
+                default:
+                    break;
+            }
+        }
     }
 }
