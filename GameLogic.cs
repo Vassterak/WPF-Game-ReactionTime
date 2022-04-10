@@ -15,7 +15,7 @@ namespace WPF_Game_ReactionTime
         Stopwatch timer;
 
         double currentDelayMin, currentDelayMax;
-        int currentNumberOfRuns;
+        int currentNumberOfRuns, selectedIndex;
 
         bool gameIsRunning = false;
 
@@ -28,11 +28,12 @@ namespace WPF_Game_ReactionTime
 
         private void RandomButtonSelect()
         {
-            int index = rnd.Next(0, 6+1); //select random button
+            int index = rnd.Next(0, 5+1); //select random button
             int delay = Convert.ToInt32(1000 * (rnd.NextDouble() * (currentDelayMax - currentDelayMin)) + currentDelayMin); //get random delay in range (miliseconds)
             Thread.Sleep(delay);
             timer.Reset();
             timer.Start();
+            selectedIndex = index;
             mainWindow.ChangeColor(index);
         }
 
@@ -48,16 +49,20 @@ namespace WPF_Game_ReactionTime
             }
             else
             {
-                //mainWindow.ShowError....
+                mainWindow.ShowMsgError("Zkontroluj zda jsi zadal vstupní hodnoty ve správném formátu!");
+                gameIsRunning = false;
             }
         }
 
         public void ButtonsPressed(int buttonID)
         {
-            timer.Stop();
-            mainWindow.ShowElepsedTime(timer.Elapsed.TotalMilliseconds.ToString());
-            mainWindow.ClearAll();
-            gameIsRunning = false;
+            if (buttonID == selectedIndex)
+            {
+                timer.Stop();
+                mainWindow.ShowElepsedTime(timer.Elapsed.TotalMilliseconds.ToString());
+                mainWindow.ClearAll();
+                gameIsRunning = false;
+            }
         }
     }
 }

@@ -64,6 +64,7 @@ namespace WPF_Game_ReactionTime
             SolidColorBrush color = (SolidColorBrush)new BrushConverter().ConvertFrom("#FFDDDDDD");
             Button0.Background = color;
             Button1.Background = color;
+            Button2.Background = color;
             Button3.Background = color;
             Button4.Background = color;
             Button5.Background = color;
@@ -72,6 +73,11 @@ namespace WPF_Game_ReactionTime
         public void ShowElepsedTime(string time)
         {
             MessageBox.Show(time);
+        }
+
+        public void ShowMsgError(string message)
+        {
+            MessageBox.Show(message, "Chyba!");
         }
 
 
