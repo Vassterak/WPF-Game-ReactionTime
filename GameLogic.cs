@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
-using System.Threading;
+using System.Windows.Threading;
 using System.Windows;
 
 namespace WPF_Game_ReactionTime
@@ -14,6 +14,7 @@ namespace WPF_Game_ReactionTime
         MainWindow mainWindow;
         Random rnd;
         Stopwatch timer;
+        DispatcherTimer timeDelay;
 
         List<int> reactionTimes; //in ms
         double currentDelayMin, currentDelayMax;
@@ -26,18 +27,27 @@ namespace WPF_Game_ReactionTime
             rnd = new Random();
             timer = new Stopwatch();
             reactionTimes = new List<int>();
+            timeDelay = new DispatcherTimer();
+            timeDelay.Tick += new EventHandler(timeDelayTick);
+
         }
 
         private void RandomButtonSelect()
         {
-            int index = selectedIndex = rnd.Next(0, 5+1); //select random button
             int delay = Convert.ToInt32(1000 * (rnd.NextDouble() * (currentDelayMax - currentDelayMin)) + currentDelayMin); //get random delay in range (miliseconds)
+            timeDelay.Interval = new TimeSpan(0,0,0,0,delay);
+            timeDelay.Start();
+            //Thread.Sleep(delay);
+        }
 
-            Thread.Sleep(delay);
+        //Event is triggered from timeDelay DispatcherTimer
+        private void timeDelayTick(object sender, EventArgs e)
+        {
+            int index = selectedIndex = rnd.Next(0, 5 + 1); //select random button
             timer.Reset();
             timer.Start();
-
             mainWindow.ChangeColor(index);
+            timeDelay.Stop();
         }
 
         public void NewGame(double delayMin, double delayMax, int numberOfRuns)

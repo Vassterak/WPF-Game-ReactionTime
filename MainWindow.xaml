@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WPF_Game_ReactionTime"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="MainWindow" MinHeight="500" MinWidth="950" KeyDown="Window_KeyDown">
+        Title="Měření reakční doby uživatele" MinHeight="500" MinWidth="950" KeyDown="Window_KeyDown">
     <Window.Resources>
         <sys:Int32 x:Key="LabelHeight">1</sys:Int32>
         <sys:Int32 x:Key="ButtonHeight">2</sys:Int32>
@@ -50,10 +50,9 @@
 
         <!--Bottom control panel-->
         <!--<Button x:Name="ClearStats" Grid.Column="7" Grid.Row="4" Margin="10" Height="35" Content="Vymaž statistiku" Click="ClearStats_Click"/>-->
-        
-        <Label Content="Počet měření za test:" Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-        
-        <ComboBox x:Name="ComboBoxSelectRuns" Grid.Column="6" Grid.Row="4" HorizontalAlignment="Stretch" Height="35">
+
+        <Label Content="Počet měření za test:" Grid.Column="5" Grid.ColumnSpan="2" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <ComboBox x:Name="ComboBoxSelectRuns" Grid.Column="7" Grid.Row="4" HorizontalAlignment="Stretch" Height="25" VerticalAlignment="Center">
             <ComboBoxItem  IsSelected="True" Content="3"></ComboBoxItem>
             <ComboBoxItem>5</ComboBoxItem>
             <ComboBoxItem>10</ComboBoxItem>
@@ -62,8 +61,7 @@
 
         <Button x:Name="ButtonStart" Grid.Column="3" Grid.Row="4" Grid.ColumnSpan="2" Margin="20" Height="45" Content="Start" Click="ButtonStart_Click"/>
 
-        
-        <Label Grid.Column="0" Grid.Row="4" VerticalAlignment="Center" Grid.ColumnSpan="3" Content="Zpožďění mezi reakcemi od [s]:" HorizontalAlignment="Left" />
+        <Label Grid.Column="0" Grid.Row="4" VerticalAlignment="Center" Grid.ColumnSpan="2" Content="Zpožďění mezi reakcemi od [s]:   " HorizontalAlignment="Center" />
         <TextBox x:Name="TextBoxsetTimeFrom" Text="1,5" Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Right" Width="50" FontSize="14"/>
         <Label Grid.Column="2" Grid.Row="4" VerticalAlignment="Center" Grid.ColumnSpan="3" Content="do [s]:" HorizontalAlignment="Left" />
         <TextBox x:Name="TextBoxsetTimeTo" Text="5" Grid.Column="2" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" Width="50" FontSize="14"/>
