@@ -64,9 +64,9 @@
 
         
         <Label Grid.Column="0" Grid.Row="4" VerticalAlignment="Center" Grid.ColumnSpan="3" Content="Zpožďění mezi reakcemi od [s]:" HorizontalAlignment="Left" />
-        <TextBox x:Name="TextBoxsetTimeFrom" Text="0,5" Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Right" Width="50" FontSize="14"/>
+        <TextBox x:Name="TextBoxsetTimeFrom" Text="1,5" Grid.Column="1" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Right" Width="50" FontSize="14"/>
         <Label Grid.Column="2" Grid.Row="4" VerticalAlignment="Center" Grid.ColumnSpan="3" Content="do [s]:" HorizontalAlignment="Left" />
-        <TextBox x:Name="TextBoxsetTimeTo" Text="0,5" Grid.Column="2" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" Width="50" FontSize="14"/>
+        <TextBox x:Name="TextBoxsetTimeTo" Text="5" Grid.Column="2" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" Width="50" FontSize="14"/>
 
     </Grid>
 </Window>

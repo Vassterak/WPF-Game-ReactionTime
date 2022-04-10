@@ -24,18 +24,66 @@ namespace WPF_Game_ReactionTime
         public MainWindow()
         {
             InitializeComponent();
-            gameLogic = new GameLogic();
+            gameLogic = new GameLogic(this);
         }
 
+        public void ChangeColor(int index)
+        {
+            switch (index)
+            {
+                case 0:
+                    Button0.Background = Brushes.LimeGreen;
+                    break;
+
+                case 1:
+                    Button1.Background = Brushes.LimeGreen;
+                    break;
+
+                case 2:
+                    Button2.Background = Brushes.LimeGreen;
+                    break;
+                case 3:
+                    Button3.Background = Brushes.LimeGreen;
+                    break;
+
+                case 4:
+                    Button4.Background = Brushes.LimeGreen;
+                    break;
+
+                case 5:
+                    Button5.Background = Brushes.LimeGreen;
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
+        public void ClearAll()
+        {
+            SolidColorBrush color = (SolidColorBrush)new BrushConverter().ConvertFrom("#FFDDDDDD");
+            Button0.Background = color;
+            Button1.Background = color;
+            Button3.Background = color;
+            Button4.Background = color;
+            Button5.Background = color;
+        }
+
+        public void ShowElepsedTime(string time)
+        {
+            MessageBox.Show(time);
+        }
+
+
+        //Event based methods
         private void ButtonStart_Click(object sender, RoutedEventArgs e)
         {
-            double delayMin, delayMax;
-            int numberOfRuns;
             try
             {
-                delayMin = double.Parse(TextBoxsetTimeFrom.Text);
-                delayMax = double.Parse(TextBoxsetTimeTo.Text);
-                numberOfRuns = int.Parse(ComboBoxSelectRuns.Text);
+                //read values from input
+                double delayMin = double.Parse(TextBoxsetTimeFrom.Text);
+                double delayMax = double.Parse(TextBoxsetTimeTo.Text);
+                int numberOfRuns = int.Parse(ComboBoxSelectRuns.Text);
 
                 gameLogic.NewGame(delayMin, delayMax, numberOfRuns);
             }
