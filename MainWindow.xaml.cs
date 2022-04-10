@@ -80,6 +80,16 @@ namespace WPF_Game_ReactionTime
             MessageBox.Show(message, "Chyba!");
         }
 
+        public void ShowTimes(List<int> values)
+        {
+            string text = "";
+            foreach (int value in values)
+            {
+                text += value.ToString() + " ms" + "\r\n";
+            }
+            MessageBox.Show(text);
+        }
+
 
         //Event based methods
         private void ButtonStart_Click(object sender, RoutedEventArgs e)

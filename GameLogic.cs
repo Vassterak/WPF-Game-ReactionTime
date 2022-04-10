@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Threading;
+using System.Windows;
 
 namespace WPF_Game_ReactionTime
 {
@@ -14,8 +15,10 @@ namespace WPF_Game_ReactionTime
         Random rnd;
         Stopwatch timer;
 
+        List<int> reactionTimes; //in ms
+
         double currentDelayMin, currentDelayMax;
-        int currentNumberOfRuns, selectedIndex;
+        int targetNumberOfRuns, selectedIndex, currentNumberOfRuns;
 
         bool gameIsRunning = false;
 
@@ -24,16 +27,18 @@ namespace WPF_Game_ReactionTime
             mainWindow = main;
             rnd = new Random();
             timer = new Stopwatch();
+            reactionTimes = new List<int>();
         }
 
         private void RandomButtonSelect()
         {
-            int index = rnd.Next(0, 5+1); //select random button
+            int index = selectedIndex = rnd.Next(0, 5+1); //select random button
             int delay = Convert.ToInt32(1000 * (rnd.NextDouble() * (currentDelayMax - currentDelayMin)) + currentDelayMin); //get random delay in range (miliseconds)
+
             Thread.Sleep(delay);
             timer.Reset();
             timer.Start();
-            selectedIndex = index;
+
             mainWindow.ChangeColor(index);
         }
 
@@ -43,25 +48,40 @@ namespace WPF_Game_ReactionTime
             {
                 currentDelayMax = delayMax;
                 currentDelayMin = delayMin;
-                currentNumberOfRuns = numberOfRuns;
+                targetNumberOfRuns = numberOfRuns;
                 gameIsRunning = true;
+                reactionTimes.Clear();
+                mainWindow.ButtonStart.IsEnabled = false;
+
                 RandomButtonSelect();
             }
             else
             {
                 mainWindow.ShowMsgError("Zkontroluj zda jsi zadal vstupní hodnoty ve správném formátu!");
                 gameIsRunning = false;
+                mainWindow.ButtonStart.IsEnabled = true;
             }
         }
 
         public void ButtonsPressed(int buttonID)
         {
-            if (buttonID == selectedIndex)
+            if (buttonID == selectedIndex && gameIsRunning)
             {
                 timer.Stop();
-                mainWindow.ShowElepsedTime(timer.Elapsed.TotalMilliseconds.ToString());
-                mainWindow.ClearAll();
-                gameIsRunning = false;
+                reactionTimes.Add(Convert.ToInt32(timer.Elapsed.TotalMilliseconds)); //add time to list
+                mainWindow.ClearAll(); //clear colors
+
+                currentNumberOfRuns++;
+                if (targetNumberOfRuns > currentNumberOfRuns)
+                    RandomButtonSelect();
+
+                else
+                {
+                    gameIsRunning = false;
+                    mainWindow.ButtonStart.IsEnabled = true;
+                    currentNumberOfRuns = 0;
+                    mainWindow.ShowTimes(reactionTimes);
+                }
             }
         }
     }
