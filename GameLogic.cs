@@ -16,10 +16,8 @@ namespace WPF_Game_ReactionTime
         Stopwatch timer;
 
         List<int> reactionTimes; //in ms
-
         double currentDelayMin, currentDelayMax;
         int targetNumberOfRuns, selectedIndex, currentNumberOfRuns;
-
         bool gameIsRunning = false;
 
         public GameLogic(MainWindow main)

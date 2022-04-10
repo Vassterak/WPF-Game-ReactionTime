@@ -70,10 +70,6 @@ namespace WPF_Game_ReactionTime
             Button5.Background = color;
         }
 
-        public void ShowElepsedTime(string time)
-        {
-            MessageBox.Show(time);
-        }
 
         public void ShowMsgError(string message)
         {
@@ -84,12 +80,15 @@ namespace WPF_Game_ReactionTime
         {
             string text = "";
             foreach (int value in values)
-            {
                 text += value.ToString() + " ms" + "\r\n";
-            }
-            MessageBox.Show(text);
-        }
 
+            text += "\r\n";
+            text += "Průměrný čas: " + values.Average() + " ms" + "\r\n";
+            text += "Nejlepší čas: " + values.Min() + " ms" + "\r\n";
+            text += "Nejhorší čas: " + values.Max() + " ms" + "\r\n";
+
+            MessageBox.Show(text, "Výsledek");
+        }
 
         //Event based methods
         private void ButtonStart_Click(object sender, RoutedEventArgs e)
