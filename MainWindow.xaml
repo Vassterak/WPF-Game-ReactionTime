@@ -30,7 +30,10 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Label Grid.Column="1" VerticalAlignment="Center" Content=""/>
+        <Label x:Name="LabelMin" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Poslední nejrychlejší: 0ms"/>
+        <Label x:Name="LabelMax" Grid.Column="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Poslední nejpomalejší: 0ms"/>
+        <Label x:Name="LabelAverage" Grid.Column="5" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Poslední průměr: 0ms"/>
+
 
         <!--Button labels for keyboard usage-->
         <Label Content="klávesa D" Grid.Column="1" Grid.Row="{Binding Source={StaticResource LabelHeight}}" Margin="10" VerticalAlignment="Center" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center"/>

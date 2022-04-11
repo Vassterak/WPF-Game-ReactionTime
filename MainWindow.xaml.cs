@@ -83,15 +83,18 @@ namespace WPF_Game_ReactionTime
                 text += value.ToString() + " ms" + "\r\n";
 
             text += "\r\n";
-            text += "Průměrný čas: " + values.Average() + " ms" + "\r\n";
+            text += "Průměrný čas: " + values.Average().ToString("#.##") + " ms" + "\r\n";
             text += "Nejlepší čas: " + values.Min() + " ms" + "\r\n";
             text += "Nejhorší čas: " + values.Max() + " ms" + "\r\n";
+
+            LabelAverage.Content = $"Poslední průměr: {values.Average().ToString("#.##")} ms";
+            LabelMin.Content = $"Poslední nejrychlejší: {values.Min()} ms";
+            LabelMax.Content = $"Poslední nejpomalejší: {values.Max()} ms";
 
             MessageBox.Show(text, "Výsledek");
         }
 
-        //Event based methods
-        private void ButtonStart_Click(object sender, RoutedEventArgs e)
+        private void StartClick()
         {
             try
             {
@@ -106,6 +109,12 @@ namespace WPF_Game_ReactionTime
             {
                 MessageBox.Show("Zadal jste neplatné údaje. Použijte pouze čísla s desetinou čárkou.", "Chyba");
             }
+        }
+
+        //Event based methods
+        private void ButtonStart_Click(object sender, RoutedEventArgs e)
+        {
+            StartClick();
         }
 
         private void Button0_Click(object sender, RoutedEventArgs e)
@@ -138,11 +147,6 @@ namespace WPF_Game_ReactionTime
             gameLogic.ButtonsPressed(5);
         }
 
-        private void ClearStats_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.Key)
@@ -169,6 +173,10 @@ namespace WPF_Game_ReactionTime
 
                 case Key.K:
                     gameLogic.ButtonsPressed(5);
+                    break;
+
+                case Key.Space:
+                    StartClick();
                     break;
 
                 default:
