@@ -81,7 +81,10 @@ namespace WPF_Game_ReactionTime
 
                 currentNumberOfRuns++;
                 if (targetNumberOfRuns > currentNumberOfRuns)
+                {
                     RandomButtonSelect();
+                    selectedIndex = -1;
+                }
 
                 else
                 {
